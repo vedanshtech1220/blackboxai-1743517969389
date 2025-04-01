@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Previous head content remains the same -->
+</head>
+<body>
+  <!-- Previous body content remains the same until the script section -->
+
+  <script>
+    // Previous toggleForms and showError functions remain the same
+
+    async function login() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      try {
+        const response = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({ 
+            email: email, 
+            password: password 
+          }),
+          credentials: 'include'
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error || 'Login failed');
+        }
+
+        const data = await response.json();
+        window.location.href = '/dashboard';
+      } catch (error) {
+        showError(error.message || 'Login failed. Please try again.');
+      }
+    }
+
+    async function signup() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('newEmail').value;
+      const password = document.getElementById('newPassword').value;
+
+      try {
+        const response = await fetch('/api/auth/signup', {
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({ 
+            name: name,
+            email: email, 
+            password: password 
+          }),
+          credentials: 'include'
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error || 'Signup failed');
+        }
+
+        const data = await response.json();
+        window.location.href = '/dashboard';
+      } catch (error) {
+        showError(error.message || 'Signup failed. Please try again.');
+      }
+    }
+  </script>
+</body>
+</html>
