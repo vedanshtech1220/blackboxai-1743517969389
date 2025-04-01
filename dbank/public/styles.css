@@ -1,0 +1,34 @@
+/* Custom styles that extend Tailwind */
+.transaction-type-btn {
+  transition: all 0.2s ease;
+}
+
+.transaction-type-btn.active {
+  transform: scale(1.02);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#transactions tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Animation for success message */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#successMessage {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Transfer-specific styles */
+.bg-yellow-100 {
+  background-color: #fef9c3;
+}
+.text-yellow-800 {
+  color: #92400e;
+}
+.text-yellow-600 {
+  color: #d97706;
+}
