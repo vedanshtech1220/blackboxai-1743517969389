@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "compression": "^1.8.0",
+    "connect-sqlite3": "^0.9.15",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express-session": "^1.18.1",
+    "express-session-sqlite": "^2.1.1",
+    "helmet": "^8.1.0"
+  }
+}
